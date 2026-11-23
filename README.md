@@ -1,5 +1,7 @@
 # MorphGate
 
+和 GHIST 的对照写在 [docs/article.md](docs/article.md)。协议来自 Wang 等人，Nature Communications，2025。
+
 H&E 上看不见的基因，就不拿图像去预测。MorphGate 在 HER2 阳性乳腺癌上做留一病人：先在训练集里按字母留出一位病人，只保留 Pearson 相关至少 0.10 的基因，再用斑点及其六个近邻的苏木精/伊红特征做岭回归。没通过的基因回填训练集均值，这条常数预测的相关记为 0。
 
 测试病人不是 A 时，门控病人都是 A。流水线没有随机划分，方差排序、门控病人和岭回归都是确定的。
